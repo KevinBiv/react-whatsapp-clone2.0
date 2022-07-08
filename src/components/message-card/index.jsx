@@ -1,8 +1,19 @@
 import React from 'react';
 import './styles.css';
 
+
+
 function MessageCard(props) {
-    return(
+    // const [isOpen, setIsOpen] = useState(false);
+    // const chatClicked = (evt) => {
+    //     console.log("Menu Icon clicked");
+    //     setIsOpen(!isOpen) 
+    // }
+    // const [active, setActive] = useState(false);
+
+    return( <>
+    
+    
         <button className='card-btn'>
             <div className="card">
                 <img src={props.profile} alt="" draggable="false" class="profile-pic" />
@@ -18,6 +29,7 @@ function MessageCard(props) {
             </div>
 
         </button>
+        </>
     )
 }
 

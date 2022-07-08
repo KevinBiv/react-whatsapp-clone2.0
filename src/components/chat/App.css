@@ -11,9 +11,13 @@
 .section-box {
     width: calc(100% - var(--aside-box-width));
     height: 100%;
+    display: inline-block;
+    background-color: #fff;
+    /* opacity: 0;
+    pointer-events: none; */
 }
 
-.section-box {
-    display: inline-block;
-    background-color: black;
+.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
