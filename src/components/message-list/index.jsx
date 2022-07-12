@@ -12,15 +12,17 @@ const messageStatus = ["NOT_SENT", "SENT", "DELIVERED", "SEEN"];
 
 
 
-function MessageList() {
+function MessageList(props) {
     const [isOpen, setIsOpen] = useState(false);
     const onMenuBtnClicked = (evt) => {
         console.log("Menu Icon clicked");
         setIsOpen(!isOpen) 
     }
 
-    function onMessageClick() {
-        
+    function onMessageCardClick(data) {
+        console.log("Message Card clicked");
+        console.log(data);
+        props.giveData(data);
     }
 
     return (
@@ -70,16 +72,21 @@ function MessageList() {
                         messageStatus = {messageStatus[contact.messageStatus]}
                         profile={contact.profilePictureURL} 
                         name={contact.names} date={date.toDateString()}
-                        message={contact.lastMessage} />
+                        message={contact.lastMessage}
+                        onMessageCardClick = {onMessageCardClick}
+                        
+                        />
                 })}
 
                     {contacts.map(contact=>{
-                    const date = new Date(contact.lastMessageTimeStamp);
-                    return <MessageCard 
-                        messageStatus = {messageStatus[contact.messageStatus]}
-                        profile={contact.profilePictureURL} 
-                        name={contact.names} date={date.toDateString()}
-                        message={contact.lastMessage} />
+                        const date = new Date(contact.lastMessageTimeStamp);
+                        return <MessageCard 
+                            messageStatus = {messageStatus[contact.messageStatus]}
+                            profile={contact.profilePictureURL} 
+                            name={contact.names} date={date.toDateString()}
+                            message={contact.lastMessage}
+                            onMessageCardClick = {onMessageCardClick}
+                        />
                 })}
 
             </div>

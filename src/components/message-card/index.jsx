@@ -4,17 +4,11 @@ import './styles.css';
 
 
 function MessageCard(props) {
-    // const [isOpen, setIsOpen] = useState(false);
-    // const chatClicked = (evt) => {
-    //     console.log("Menu Icon clicked");
-    //     setIsOpen(!isOpen) 
-    // }
-    // const [active, setActive] = useState(false);
+
+    const {onMessageCardClick, ...data} = props;
 
     return( <>
-    
-    
-        <button className='card-btn'>
+        <button className='card-btn' onClick={_=>onMessageCardClick(data)}>
             <div className="card">
                 <img src={props.profile} alt="" draggable="false" class="profile-pic" />
                     <div className="card-content">
